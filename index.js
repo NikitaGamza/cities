@@ -5,7 +5,7 @@ const form = document.getElementById('form');
 form.addEventListener('submit', function (event) {
   event.preventDefault(); //предотвращает автоотправку?
   const city = document.getElementById('main__inp').value;
-  if (collection.includes(city)) {
+  if (collection.includes(city.toLowerCase())) {
     alert('Этот город уже был назван');
   } else if (
     (char == null || char == city[0].toLowerCase()) &&
@@ -29,7 +29,7 @@ form.addEventListener('submit', function (event) {
     char = city[city.length - 1].toLowerCase();
 
     chat.appendChild(message);
-    collection.push(city);
+    collection.push(city.toLowerCase());
   } else {
     alert(
       'Первая буква города должна совпадать с последней буквой предыдущего. Название города не должно быть пустым'
